@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SafeShout - A secure youth reporting platform enabling young people to submit confidential reports about concerns such as abuse, online safety, mental health, self-harm, and bullying.">
+    <meta name="keywords" content="youth reporting, safeguarding, mental health support, bullying prevention, anonymous reporting">
+    <meta name="author" content="SafeShout">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SafeShout - Safe Youth Reporting Platform">
+    <meta property="og:description" content="A compassionate digital platform empowering young people to safely report concerns through an intuitive, trauma-informed reporting workflow.">
+    <meta property="og:url" content="https://safeshout.github.io">
+    
+    <title>SafeShout - Safe Youth Reporting Platform</title>
+    
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            line-height: 1.6;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .shield-icon {
+            width: 48px;
+            height: 48px;
+            background: #4f46e5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature {
+            padding: 2rem;
+            border: 2px solid #f3f4f6;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        
+        .feature:hover {
+            border-color: #4f46e5;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.15);
+            background: white;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .feature-desc {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 16px;
+        }
+        
+        .cta-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-desc {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+        
+        .github-link {
+            display: inline-block;
+            background: #1f2937;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+        
+        .github-link:hover {
+            background: #111827;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(31, 41, 55, 0.3);
+        }
+        
+        .demo-link {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-link:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+        }
+        
+        .crisis-banner {
+            background: #fef2f2;
+            border: 2px solid #fecaca;
+            border-left: 6px solid #ef4444;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .crisis-text {
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .emergency-icon {
+            color: #ef4444;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+        
+        .tech-stack {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .stack-item {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: left;
+        }
+        
+        .stack-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stack-list {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0.5rem;
+                padding: 2rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .shield-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .feature {
+                padding: 1.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .crisis-banner {
+                padding: 1rem;
+            }
+            
+            .crisis-text {
+                font-size: 0.9rem;
+            }
+            
+            .github-link, .demo-link {
+                display: block;
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="crisis-banner">
+            <div class="crisis-text">
+                <span class="emergency-icon">🚨</span>
+                <strong>In Crisis?</strong> Call Emergency Services (999) or PAPYRUS Prevention of Young Suicide (0800 068 4141) for immediate help. Text HOPELINEUK to 88247.
+            </div>
+        </div>
+        
+        <div class="logo">
+            <div class="shield-icon">🛡️</div>
+            SafeShout
+        </div>
+        
+        <div class="tagline">
+            A compassionate digital platform empowering young people to safely report concerns through an intuitive, trauma-informed reporting workflow.
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title">Secure & Anonymous</div>
+                <div class="feature-desc">Report concerns anonymously or create a secure account for tracking submissions with reference numbers</div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">Mobile-Responsive</div>
+                <div class="feature-desc">Progressive 2-page workflow with trauma-informed design that puts young people's safety first</div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🗺️</div>
+                <div class="feature-title">Interactive Mapping</div>
+                <div class="feature-desc">OpenStreetMap integration for precise location reporting with comprehensive privacy controls</div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📎</div>
+                <div class="feature-title">Secure File Upload</div>
+                <div class="feature-desc">Upload images, audio, and video evidence with cloud storage and access control protection</div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <div class="cta-title">Open Source & GitHub Ready</div>
+            <div class="cta-desc">
+                Complete implementation ready for deployment with comprehensive documentation, security features, and modern architecture.
+            </div>
+            <a href="https://github.com" class="github-link">View on GitHub</a>
+            <a href="#" class="demo-link" onclick="alert('Contact administrator for platform access'); return false;">Request Demo</a>
+        </div>
+        
+        <div class="tech-stack">
+            <div class="stack-grid">
+                <div class="stack-item">
+                    <div class="stack-title">Frontend</div>
+                    <div class="stack-list">
+                        React 18, TypeScript<br>
+                        Tailwind CSS, Shadcn/ui<br>
+                        React Hook Form
+                    </div>
+                </div>
+                
+                <div class="stack-item">
+                    <div class="stack-title">Backend</div>
+                    <div class="stack-list">
+                        Express.js, PostgreSQL<br>
+                        Drizzle ORM, BCrypt<br>
+                        Object Storage
+                    </div>
+                </div>
+                
+                <div class="stack-item">
+                    <div class="stack-title">Report Categories</div>
+                    <div class="stack-list">
+                        Abuse, Online Safety<br>
+                        Mental Health, Self-Harm<br>
+                        Bullying Prevention
+                    </div>
+                </div>
+                
+                <div class="stack-item">
+                    <div class="stack-title">Security</div>
+                    <div class="stack-list">
+                        Anonymous Reporting<br>
+                        Encrypted Storage<br>
+                        Session Management
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
